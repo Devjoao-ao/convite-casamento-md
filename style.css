@@ -22,36 +22,35 @@ body {
     position: relative;
     /* Define o contexto para os filhos */
     width: 100%;
-    /* max-width removido para ocupar a tela toda */
+    /* 
+       IMPORTANTE: max-width removido para ocupar a tela toda 
+       (Se quiser limitar no PC, descomente a linha abaixo)
+    */
+    /* max-width: 600px; */
     margin: 0;
 
-    /* Removemos sombra e cor de fundo pois agora é full screen */
     background-color: transparent;
     box-shadow: none;
 }
 
-/* PDF DE VOLTA AO FUNDO */
-.pdf-background {
-    position: relative;
+/* IMAGEM DE FUNDO (WEBP) */
+.invite-image {
     display: block;
     width: 100%;
 
     /* 
-       AUMENTADO PARA 430vw:
-       Ajuste fino ("só mais um pouco").
+       AGORA É AUTOMÁTICO:
+       Como é uma imagem, a altura se ajusta sozinha proporcionalmente.
+       Isso evita que fique "grudado" ou esticado errado.
     */
-    height: 430vw;
-
-    border: none;
-    z-index: 1;
+    height: auto;
 
     /* 
-       A CORREÇÃO DEFINITIVA DO "SABONETE":
-       Isso impede que o cursor interaja com o PDF (selecionar texto, scroll interno).
-       Faz o PDF se comportar EXATAMENTE como uma imagem de fundo.
-       Assim, ao rolar, a página rola inteira e o botão não sai do lugar.
+       Trava de clique na imagem para evitar arrastar sem querer 
+       (Melhora a sensação de "app")
     */
     pointer-events: none;
+    z-index: 1;
 }
 
 /* BOTÃO TRAVADO */
@@ -62,7 +61,7 @@ body {
     transform: translateX(-50%);
     /* Centraliza exato no meio */
 
-    /* ALTURA: Subiu para 46% ("só mais um pouco") */
+    /* ALTURA: Ajustado para 46% */
     top: 46%;
 
     /* TAMANHO: Aumentei um pouco para caber o texto sem quebrar */
